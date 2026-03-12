@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Just Meat/Egg Competitive Pricing - Netherlands/Nordic Region</title>
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-bg: #f0faf4;
+    --red: #c1121f;
+    --orange: #e76f51;
+    --blue: #0077b6;
+    --gray: #6c757d;
+    --gray-light: #f8f9fa;
+    --border: #dee2e6;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #212529;
+    background: #fff;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  header {
+    border-bottom: 3px solid var(--green);
+    padding-bottom: 20px;
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 28px; color: var(--green); margin-bottom: 4px; }
+  .subtitle { color: var(--gray); font-size: 15px; }
+  .date { color: var(--gray); font-size: 13px; margin-top: 8px; }
+  .key-finding {
+    background: #fff3cd;
+    border-left: 4px solid var(--orange);
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .key-finding strong { color: var(--orange); }
+  h2 {
+    font-size: 22px;
+    color: var(--green);
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  h3 { font-size: 18px; margin: 20px 0 12px; }
+  .country-section {
+    background: var(--gray-light);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .country-flag { font-size: 24px; margin-right: 8px; }
+  .retailer-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .retailer-name {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--green-light);
+    margin-bottom: 4px;
+  }
+  .market-share { color: var(--gray); font-size: 13px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  th {
+    text-align: left;
+    background: var(--green-bg);
+    padding: 8px 10px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--green);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:hover td { background: #f8f9fa; }
+  .price { font-weight: 700; color: var(--green); }
+  .price-per-kg { color: var(--gray); font-size: 12px; }
+  .price-per-oz { color: var(--blue); font-weight: 600; font-size: 13px; }
+  .unavailable { color: var(--red); font-style: italic; }
+  .impossible-row td { background: #fff0f0; }
+  .chicken-row td { background: #f0f0ff; }
+  .impossible-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .beyond-badge {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .chicken-badge {
+    display: inline-block;
+    background: var(--blue);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .comparison-table {
+    margin: 20px 0;
+  }
+  .comparison-table th { background: #e9ecef; color: #212529; }
+  .note {
+    background: #e8f4fd;
+    border-left: 4px solid #0077b6;
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+  }
+  .source { color: var(--gray); font-size: 12px; }
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--gray);
+    font-size: 13px;
+  }
+  .gap-note {
+    background: #fff;
+    border: 1px dashed var(--border);
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: var(--gray);
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .screenshots { margin: 32px 0; }
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .screenshot-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .screenshot-item {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .screenshot-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .screenshot-item .caption {
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--gray);
+    background: var(--gray-light);
+  }
+  @media print {
+    body { max-width: 100%; padding: 12px; }
+    .country-section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Just Meat/Egg Competitive Pricing Comparison</h1>
+  <div class="subtitle">Netherlands/Nordic Region - Top Grocery Chains</div>
+  <div class="date">Compiled March 12, 2026 | Live retail prices from store websites</div>
+</header>
+
+<div class="key-finding">
+  <strong>Key Finding:</strong> Impossible Foods has entered the Netherlands via Jumbo at <strong>&euro;3.99/200g (&euro;0.57/oz)</strong>, undercutting Beyond Meat's comparable burger (&euro;4.69/226g, &euro;0.59/oz). Impossible is <strong>not yet available</strong> in Sweden or Norway. Beyond Meat is present in all three markets but with thin assortment in Scandinavia (1-2 SKUs vs. 6 in NL). Plant-based chicken is emerging but limited to local brands in Scandinavia.
+</div>
+
+<div class="legend">
+  <div class="legend-item"><span class="beyond-badge">BEYOND</span> Beyond Meat</div>
+  <div class="legend-item"><span class="impossible-badge">IMPOSSIBLE</span> Impossible Foods</div>
+  <div class="legend-item"><span class="chicken-badge">PB CHICKEN</span> Plant-based chicken benchmark</div>
+</div>
+
+<!-- NETHERLANDS -->
+<div class="country-section">
+  <h2><span class="country-flag">&#x1F1F3;&#x1F1F1;</span> Netherlands</h2>
+  <p style="margin-bottom: 16px; font-size: 14px;">Top 3 by market share: Albert Heijn (~37%), Jumbo (~21%), PLUS (~8%)</p>
+
+  <!-- Albert Heijn -->
+  <div class="retailer-card">
+    <div class="retailer-name">Albert Heijn</div>
+    <div class="market-share">#1 retailer, ~37% market share | ~1,000 stores | Source: ah.nl</div>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Brand</th><th>Size</th><th>Price</th><th>/oz</th><th>/kg</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Plant-based Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>226g</td>
+          <td class="price">&euro;4.69</td>
+          <td class="price-per-oz">&euro;0.59</td>
+          <td class="price-per-kg">&euro;20.75</td>
+          <td>Flagship SKU</td>
+        </tr>
+        <tr>
+          <td>Jalape&ntilde;o Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>200g</td>
+          <td class="price">&euro;4.69</td>
+          <td class="price-per-oz">&euro;0.67</td>
+          <td class="price-per-kg">&euro;23.45</td>
+          <td>NEW - Apr 2025</td>
+        </tr>
+        <tr>
+          <td>Hack / Mince <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>250g</td>
+          <td class="price">&euro;4.49</td>
+          <td class="price-per-oz">&euro;0.51</td>
+          <td class="price-per-kg">&euro;17.96</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sausage <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>200g</td>
+          <td class="price">&euro;4.39</td>
+          <td class="price-per-oz">&euro;0.62</td>
+          <td class="price-per-kg">&euro;21.95</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Biefstukpuntjes / Steak Tips <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>160g</td>
+          <td class="price">&euro;4.99</td>
+          <td class="price-per-oz">&euro;0.88</td>
+          <td class="price-per-kg">&euro;31.19</td>
+          <td>Nutri-Score A</td>
+        </tr>
+        <tr>
+          <td>Smash Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>2 stuks</td>
+          <td class="price">&euro;3.49</td>
+          <td class="price-per-oz">-</td>
+          <td class="price-per-kg">-</td>
+          <td class="unavailable">Discontinued</td>
+        </tr>
+        <tr class="chicken-row">
+          <td>Plantaardige Kipstukjes <span class="chicken-badge">PB CHICKEN</span></td>
+          <td>This!</td>
+          <td>~200g</td>
+          <td class="price">&euro;3.99*</td>
+          <td class="price-per-oz">&euro;0.57*</td>
+          <td class="price-per-kg">&euro;19.95*</td>
+          <td>*est. from AH Terra range</td>
+        </tr>
+        <tr>
+          <td colspan="7" style="color: var(--gray); font-style: italic;">Impossible Foods: not listed at Albert Heijn</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Jumbo -->
+  <div class="retailer-card">
+    <div class="retailer-name">Jumbo</div>
+    <div class="market-share">#2 retailer, ~21% market share | ~700 stores | Source: jumbo.com</div>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Brand</th><th>Size</th><th>Price</th><th>/oz</th><th>/kg</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Burger Original <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>226g</td>
+          <td class="price">&euro;4.69</td>
+          <td class="price-per-oz">&euro;0.59</td>
+          <td class="price-per-kg">&euro;20.75</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Hack / Mince <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>250g</td>
+          <td class="price">&euro;4.49</td>
+          <td class="price-per-oz">&euro;0.51</td>
+          <td class="price-per-kg">&euro;17.96</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Sausage Original Brat <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>200g</td>
+          <td class="price">&euro;4.39</td>
+          <td class="price-per-oz">&euro;0.62</td>
+          <td class="price-per-kg">&euro;21.95</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Smash-Style Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>152g</td>
+          <td class="price">&euro;3.49</td>
+          <td class="price-per-oz">&euro;0.65</td>
+          <td class="price-per-kg">&euro;22.96</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Jalape&ntilde;o Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>200g</td>
+          <td class="price">&euro;4.69</td>
+          <td class="price-per-oz">&euro;0.67</td>
+          <td class="price-per-kg">&euro;23.45</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Chicken-Style Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>180g</td>
+          <td class="price">&euro;3.25</td>
+          <td class="price-per-oz">&euro;0.51</td>
+          <td class="price-per-kg">&euro;18.06</td>
+          <td class="unavailable">Temporarily unavailable</td>
+        </tr>
+        <tr class="impossible-row">
+          <td>Grilled Burger Patties <span class="impossible-badge">IMPOSSIBLE</span></td>
+          <td>Impossible Foods</td>
+          <td>200g</td>
+          <td class="price" style="color: var(--red);">&euro;3.99</td>
+          <td class="price-per-oz" style="color: var(--red);">&euro;0.57</td>
+          <td class="price-per-kg">&euro;19.95</td>
+          <td><strong>Now in NL retail</strong></td>
+        </tr>
+        <tr class="chicken-row">
+          <td>Crispy Chik'n Burger <span class="chicken-badge">PB CHICKEN</span></td>
+          <td>Valess</td>
+          <td>180g</td>
+          <td class="price">&euro;3.69</td>
+          <td class="price-per-oz">&euro;0.58</td>
+          <td class="price-per-kg">&euro;20.50</td>
+          <td>Vegetarian (not vegan)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PLUS -->
+  <div class="retailer-card">
+    <div class="retailer-name">PLUS</div>
+    <div class="market-share">#3 retailer, ~8% market share | ~270 stores</div>
+    <div class="gap-note">Pricing not retrieved. Beyond Meat confirmed at PLUS (Jalape&ntilde;o Burger in 75 stores, Apr 2025). PLUS website requires in-store selection.</div>
+  </div>
+</div>
+
+<!-- SWEDEN -->
+<div class="country-section">
+  <h2><span class="country-flag">&#x1F1F8;&#x1F1EA;</span> Sweden</h2>
+  <p style="margin-bottom: 16px; font-size: 14px;">Top 3 by market share: ICA (~36%), Axfood/Willys (~24%), Coop (~20%)</p>
+
+  <div class="note">Beyond Meat has a <strong>very thin presence</strong> in Swedish retail - only 1 SKU found at Coop (Stockholm delivery). Impossible Foods is <strong>not available</strong>. Plant-based chicken from local brands (Hooked Foods) is emerging at ICA and Coop. Exchange rate: 1 EUR &asymp; 11.5 SEK. 1 oz = 28.35g.</div>
+
+  <!-- ICA -->
+  <div class="retailer-card">
+    <div class="retailer-name">ICA</div>
+    <div class="market-share">#1 retailer, ~36% market share | ~1,300 stores (franchise)</div>
+    <div class="gap-note">ICA online (handla.ica.se) blocked automated access. Beyond Meat confirmed at ICA Maxi locations. ICA is franchise-operated so prices vary by store. Hooked Foods plant-based chicken is stocked at ICA.</div>
+  </div>
+
+  <!-- Coop Sweden -->
+  <div class="retailer-card">
+    <div class="retailer-name">Coop Sweden</div>
+    <div class="market-share">#2/#3 retailer, ~20% market share | ~800 stores | Source: coop.se (Stockholm)</div>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Brand</th><th>Size</th><th>Price (SEK)</th><th>/oz (SEK)</th><th>/kg (SEK)</th><th>EUR equiv.</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Beyond Burger 2-pack <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>226g</td>
+          <td class="price">55.95 kr</td>
+          <td class="price-per-oz">7.02 kr</td>
+          <td class="price-per-kg">247.57 kr</td>
+          <td>&euro;4.87 | &euro;0.61/oz</td>
+        </tr>
+        <tr>
+          <td colspan="7" style="color: var(--gray); font-style: italic;">Only 1 Beyond Meat SKU. No Impossible Foods. No plant-based chicken found in search results.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Willys -->
+  <div class="retailer-card">
+    <div class="retailer-name">Willys (Axfood)</div>
+    <div class="market-share">#2/#3 retailer, ~24% market share (Axfood group) | discount format</div>
+    <div class="gap-note">Not checked. Willys typically prices 10-15% below ICA. Beyond Meat availability unconfirmed.</div>
+  </div>
+</div>
+
+<!-- NORWAY -->
+<div class="country-section">
+  <h2><span class="country-flag">&#x1F1F3;&#x1F1F4;</span> Norway</h2>
+  <p style="margin-bottom: 16px; font-size: 14px;">Top 3 by market share: NorgesGruppen (~44%), Coop (~29%), Rema 1000 (~23%)</p>
+
+  <div class="note">Norway has extremely high food prices due to import tariffs. Beyond Meat is sold <strong>frozen</strong> (vs. fresh/chilled in NL and Sweden). Impossible Foods is <strong>not available</strong>. Plant-based chicken comes from local brand Wauw! (by Flowfood). Exchange rate: 1 EUR &asymp; 11.6 NOK. 1 oz = 28.35g.</div>
+
+  <!-- Oda / NorgesGruppen -->
+  <div class="retailer-card">
+    <div class="retailer-name">Oda (NorgesGruppen online)</div>
+    <div class="market-share">NorgesGruppen is #1 group (~44% share, Kiwi, Meny, Spar, Joker) | Source: oda.com</div>
+    <table>
+      <thead>
+        <tr><th>Product</th><th>Brand</th><th>Size</th><th>Price (NOK)</th><th>/oz (NOK)</th><th>/kg (NOK)</th><th>EUR equiv.</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Beyond Burger <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>226g</td>
+          <td class="price">52.50 kr</td>
+          <td class="price-per-oz">6.59 kr</td>
+          <td class="price-per-kg">232.30 kr</td>
+          <td>&euro;4.53 | &euro;0.57/oz</td>
+        </tr>
+        <tr>
+          <td>Plantebasert kj&oslash;ttdeig / Mince <span class="beyond-badge">BEYOND</span></td>
+          <td>Beyond Meat</td>
+          <td>250g</td>
+          <td class="price">82.90 kr</td>
+          <td class="price-per-oz">9.40 kr</td>
+          <td class="price-per-kg">331.60 kr</td>
+          <td>&euro;7.15 | &euro;0.81/oz</td>
+        </tr>
+        <tr class="chicken-row">
+          <td>Plantebasert Nuggets <span class="chicken-badge">PB CHICKEN</span></td>
+          <td>Wauw! (Flowfood)</td>
+          <td>280g</td>
+          <td class="price">49.90 kr</td>
+          <td class="price-per-oz">5.05 kr</td>
+          <td class="price-per-kg">178.21 kr</td>
+          <td>&euro;4.30 | &euro;0.44/oz</td>
+        </tr>
+        <tr>
+          <td colspan="7" style="color: var(--gray); font-style: italic;">All products sold frozen. No Impossible Foods products listed.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Coop Norway -->
+  <div class="retailer-card">
+    <div class="retailer-name">Coop Norway</div>
+    <div class="market-share">#2 retailer, ~29% market share</div>
+    <div class="gap-note">Not checked. Beyond Meat confirmed at select Coop locations.</div>
+  </div>
+
+  <!-- Rema 1000 -->
+  <div class="retailer-card">
+    <div class="retailer-name">Rema 1000</div>
+    <div class="market-share">#3 retailer, ~23% market share | discount format</div>
+    <div class="gap-note">Beyond Burger confirmed available (via Rema 1000 Facebook). Pricing not retrieved.</div>
+  </div>
+</div>
+
+<!-- CROSS-MARKET COMPARISON -->
+<h2>Cross-Market Price Comparison</h2>
+
+<h3>Beyond Burger (226g, 2-pack)</h3>
+<div class="comparison-table">
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Retailer</th>
+      <th>Local Price</th>
+      <th>EUR/pack</th>
+      <th>EUR/oz</th>
+      <th>EUR/kg</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+      <td>Albert Heijn</td>
+      <td class="price">&euro;4.69</td>
+      <td>&euro;4.69</td>
+      <td class="price-per-oz">&euro;0.59</td>
+      <td>&euro;20.75</td>
+      <td>Fresh/chilled</td>
+    </tr>
+    <tr>
+      <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+      <td>Jumbo</td>
+      <td class="price">&euro;4.69</td>
+      <td>&euro;4.69</td>
+      <td class="price-per-oz">&euro;0.59</td>
+      <td>&euro;20.75</td>
+      <td>Fresh/chilled</td>
+    </tr>
+    <tr>
+      <td>&#x1F1F8;&#x1F1EA; Sweden</td>
+      <td>Coop</td>
+      <td class="price">55.95 SEK</td>
+      <td>&euro;4.87</td>
+      <td class="price-per-oz">&euro;0.61</td>
+      <td>&euro;21.55</td>
+      <td>Fresh/chilled</td>
+    </tr>
+    <tr>
+      <td>&#x1F1F3;&#x1F1F4; Norway</td>
+      <td>Oda</td>
+      <td class="price">52.50 NOK</td>
+      <td>&euro;4.53</td>
+      <td class="price-per-oz">&euro;0.57</td>
+      <td>&euro;20.04</td>
+      <td>Frozen</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Plant-Based Chicken Benchmark</h3>
+<div class="comparison-table">
+<table>
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Retailer</th>
+      <th>Product</th>
+      <th>Brand</th>
+      <th>Local Price</th>
+      <th>EUR/pack</th>
+      <th>EUR/oz</th>
+      <th>EUR/kg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="chicken-row">
+      <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+      <td>Jumbo</td>
+      <td>Crispy Chik'n Burger (180g)</td>
+      <td>Valess</td>
+      <td class="price">&euro;3.69</td>
+      <td>&euro;3.69</td>
+      <td class="price-per-oz">&euro;0.58</td>
+      <td>&euro;20.50</td>
+    </tr>
+    <tr class="chicken-row">
+      <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+      <td>Jumbo</td>
+      <td>Beyond Chicken-Style (180g)</td>
+      <td>Beyond Meat</td>
+      <td class="price">&euro;3.25</td>
+      <td>&euro;3.25</td>
+      <td class="price-per-oz">&euro;0.51</td>
+      <td class="unavailable">&euro;18.06 (unavail.)</td>
+    </tr>
+    <tr class="chicken-row">
+      <td>&#x1F1F8;&#x1F1EA; Sweden</td>
+      <td>ICA / Coop</td>
+      <td colspan="6" style="color: var(--gray); font-style: italic;">Hooked Foods PB chicken stocked but pricing not retrieved. No Beyond/Impossible chicken.</td>
+    </tr>
+    <tr class="chicken-row">
+      <td>&#x1F1F3;&#x1F1F4; Norway</td>
+      <td>Oda</td>
+      <td>Plantebasert Nuggets (280g)</td>
+      <td>Wauw!</td>
+      <td class="price">49.90 NOK</td>
+      <td>&euro;4.30</td>
+      <td class="price-per-oz">&euro;0.44</td>
+      <td>&euro;15.36</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Impossible Foods - EU Market Entry Status</h2>
+<div class="retailer-card">
+  <table>
+    <thead>
+      <tr><th>Market</th><th>Status</th><th>Retailer</th><th>Price</th><th>/oz</th></tr>
+    </thead>
+    <tbody>
+      <tr class="impossible-row">
+        <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+        <td><strong style="color: var(--green);">AVAILABLE</strong></td>
+        <td>Jumbo</td>
+        <td class="price" style="color: var(--red);">&euro;3.99 / 200g</td>
+        <td class="price-per-oz" style="color: var(--red);">&euro;0.57</td>
+      </tr>
+      <tr>
+        <td>&#x1F1F3;&#x1F1F1; Netherlands</td>
+        <td class="unavailable">Not listed</td>
+        <td>Albert Heijn</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>&#x1F1F8;&#x1F1EA; Sweden</td>
+        <td class="unavailable">Not available</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>&#x1F1F3;&#x1F1F4; Norway</td>
+        <td class="unavailable">Not available</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="note" style="margin-top: 12px;">
+    <strong>Regulatory:</strong> EFSA issued a second positive safety opinion for Impossible's soy leghemoglobin (heme). Final EU Commission approval pending. Impossible launched in UK restaurants and targets Germany and Netherlands as first EU retail markets. Norway (non-EU) requires separate approval.
+  </div>
+</div>
+
+<h2>Retailer Screenshots</h2>
+<p style="font-size: 14px; color: var(--gray); margin-bottom: 8px;">Live captures from retailer websites, March 12, 2026</p>
+
+<h3>Netherlands - Albert Heijn</h3>
+<div class="screenshot-grid">
+  <div class="screenshot-item">
+    <img src="ah-beyond-all.png" alt="Albert Heijn Beyond Meat all 5 SKUs with prices">
+    <div class="caption">AH Beyond Meat - all 5 SKUs: Hack &euro;4.49, Sausage &euro;4.39, Burger &euro;4.69, Biefstukpuntjes &euro;4.99, Jalape&ntilde;o &euro;4.69</div>
+  </div>
+  <div class="screenshot-item">
+    <img src="ah-pb-chicken.png" alt="Albert Heijn plant-based chicken products">
+    <div class="caption">AH plant-based chicken - 6 SKUs: AH Terra from &euro;1.99, Vivera &euro;4.99, Vegetarische Slager &euro;4.29-6.19</div>
+  </div>
+</div>
+
+<h3>Netherlands - Jumbo</h3>
+<div class="screenshot-grid">
+  <div class="screenshot-item">
+    <img src="jumbo-beyond-all.png" alt="Jumbo search results showing Beyond Meat, Impossible, and plant-based products">
+    <div class="caption">Jumbo full results - 23 products incl. Beyond (5 SKUs), Impossible (&euro;3.99), Valess Chik'n (&euro;3.69), Redefine, He&uuml;ra</div>
+  </div>
+  <div class="screenshot-item">
+    <img src="jumbo-impossible.png" alt="Impossible Grilled Burger Patties product page at Jumbo">
+    <div class="caption">Impossible Grilled Burger Patties - &euro;3.99/200g (&euro;19.95/kg). First EU retail listing. Soy-based, 18g protein.</div>
+  </div>
+</div>
+
+<h3>Sweden - Coop</h3>
+<div class="screenshot-grid">
+  <div class="screenshot-item">
+    <img src="coop-sweden-beyond.png" alt="Coop Sweden Beyond Burger - only 1 SKU">
+    <div class="caption">Coop Sweden - only 1 Beyond Meat SKU: Beyond Burger 2-pack, 55.95 kr (&euro;4.87)</div>
+  </div>
+  <div class="screenshot-item">
+    <img src="coop-sweden-pb-chicken.png" alt="Coop Sweden Hooked Vegobitar plant-based chicken">
+    <div class="caption">Coop Sweden PB chicken - Hooked Vegobitar Original, 400g, 57.95 kr (&euro;5.04). Frozen.</div>
+  </div>
+</div>
+
+<h3>Norway - Oda</h3>
+<div class="screenshot-grid three-col">
+  <div class="screenshot-item">
+    <img src="oda-beyond-prices.png" alt="Oda Norway Beyond Burger and Beyond Mince with prices">
+    <div class="caption">Oda Beyond Meat - Burger 52.50 kr, Mince 82.90 kr. Both frozen.</div>
+  </div>
+  <div class="screenshot-item">
+    <img src="oda-wauw-products.png" alt="Oda Norway Wauw! plant-based mince and bites">
+    <div class="caption">Wauw! (Flowfood) - Mince 49.90 kr/280g, Bites 49.90 kr/250g. New brand.</div>
+  </div>
+  <div class="screenshot-item">
+    <img src="oda-wauw-nuggets.png" alt="Oda Norway Wauw! nuggets and schnitzel">
+    <div class="caption">Wauw! Nuggets 49.90 kr/280g + Schnitzel 49.90 kr/270g. Stabburet also competing.</div>
+  </div>
+</div>
+
+<h2>Observations for Just Egg &amp; Just Meat Positioning</h2>
+<div class="retailer-card">
+  <h3 style="margin-top: 0;">Market Landscape</h3>
+  <ul style="padding-left: 20px; font-size: 15px; line-height: 1.8;">
+    <li><strong>Netherlands is the most developed market</strong> - 5 Beyond SKUs at AH, 6+ at Jumbo, Impossible entering. Dutch consumers have established plant-based purchasing behavior. NL should be the launch market for both Just Egg and Just Meat.</li>
+    <li><strong>Price-per-ounce range: &euro;0.51-0.88/oz</strong> - Beyond Burger at &euro;0.59/oz is the anchor; specialty items (steak tips) command &euro;0.88/oz. Impossible undercuts at &euro;0.57/oz.</li>
+    <li><strong>Beyond Meat pricing is identical across Dutch retailers</strong> - AH and Jumbo match on every overlapping SKU. No channel price competition.</li>
+    <li><strong>Impossible is undercutting Beyond in NL</strong> - &euro;0.57/oz vs &euro;0.59/oz. Small per-oz gap, but pack price (&euro;3.99 vs &euro;4.69) creates stronger shelf perception.</li>
+    <li><strong>Scandinavia is early-stage</strong> - 1-2 Beyond SKUs, no Impossible. Plant-based products from local brands (Wauw!, Hooked Foods, Stabburet), not US imports.</li>
+    <li><strong>Norway's frozen format is cheapest per ounce</strong> - &euro;0.57/oz (frozen) vs &euro;0.59/oz (fresh NL) vs &euro;0.61/oz (fresh Sweden). Frozen enables competitive pricing despite Norway's high tariffs.</li>
+  </ul>
+
+  <h3>Just Meat Positioning</h3>
+  <ul style="padding-left: 20px; font-size: 15px; line-height: 1.8;">
+    <li><strong>Clear price gap to exploit</strong> - Beyond Burger is &euro;4.69/226g in NL. Just Meat could enter at or below Impossible's &euro;3.99/200g and claim the value position.</li>
+    <li><strong>Plant-based chicken is wide open</strong> - No major US brand owns the PB chicken shelf in these markets. Valess (NL, vegetarian not vegan), Hooked Foods (Sweden, frozen), Wauw! (Norway, frozen). Beyond Chicken-Style is "voorlopig niet leverbaar" (temporarily unavailable) at Jumbo.</li>
+    <li><strong>Jumbo is the beachhead retailer</strong> - Already carries Impossible (only Dutch retailer to do so), 23 PB products in search results, clearly open to new entrants. Redefine and He&uuml;ra also on shelf.</li>
+    <li><strong>AH Terra private label is the floor</strong> - AH's own PB chicken (kipstukjes) starts at &euro;1.99/160g. Any Just Meat chicken product needs to justify premium over store brands.</li>
+  </ul>
+
+  <h3>Just Egg Positioning</h3>
+  <ul style="padding-left: 20px; font-size: 15px; line-height: 1.8;">
+    <li><strong>No direct competitor on shelf</strong> - Zero plant-based liquid egg products found at any retailer across all 3 markets. The Bridge VEGEGG (0.5L, 49.90 NOK) is the only vaguely adjacent product, and only at Oda Norway.</li>
+    <li><strong>Category creation opportunity</strong> - Just Egg would define the category, not compete in one. Pricing should anchor to conventional egg prices (not PB meat prices).</li>
+    <li><strong>NL shelf space is available</strong> - AH has deep vegan sections (5 Beyond SKUs, 6 PB chicken SKUs). Jumbo actively expands alternative protein. Both would likely allocate shelf for a novel category.</li>
+  </ul>
+</div>
+
+<footer>
+  <p><strong>Data sources:</strong> Albert Heijn (ah.nl), Jumbo (jumbo.com), Coop Sweden (coop.se), Oda Norway (oda.com). Prices as displayed on retailer websites March 12, 2026.</p>
+  <p style="margin-top: 8px;"><strong>Gaps:</strong> PLUS (NL #3), ICA (SE #1), Willys (SE #3), Coop Norway, Rema 1000 - sites blocked automated access or required store selection.</p>
+  <p style="margin-top: 8px;"><strong>Conversions:</strong> 1 oz = 28.35g | 1 EUR = 11.5 SEK | 1 EUR = 11.6 NOK (approx. March 2026)</p>
+  <p style="margin-top: 12px;">Prepared by J for Josh Tetrick | Just Food Company</p>
+</footer>
+
+</body>
+</html>
